@@ -47,10 +47,10 @@ document.getElementById("btnRegistrar").addEventListener("click", () => {
 })
 
 const reloadTable = () => {
-    const participanteTemplate = document.getElementById("Participantes") //tabla en el HTML
-    participanteTemplate.innerHTML = ""; //para ir limpiando
+    const participantesTemplate = document.getElementById("Participantes") //tabla en el HTML
+    participantesTemplate.innerHTML = ""; //para ir limpiando
     participantes.forEach((p,i) => {
-        participanteTemplate.innerHTML += `
+        participantesTemplate.innerHTML += `
         <div class="px-3 pb-2 participante"  data-fighter="${p.getNombre()}" >
         <div class="card">
           <img
@@ -67,6 +67,23 @@ const reloadTable = () => {
           </div>
         </div>
       </div>
-        `
-    })
+        `;
+    });
+};
+
+// no se pueden ejecutar funciones al ser de tipo Modulo 
+window.activarHabilidad = (i) => {
+
+    const participante = participantes[i]
+    if(participante.getRaza() == "Saiyajin"){
+        console.log(participante.getRaza())
+        participante.Transformacion()
+    }
+    else if (participante.getRaza() == "Humano"){
+        participante.Coraje()
+    }
+    reloadTable()
 }
+
+
+

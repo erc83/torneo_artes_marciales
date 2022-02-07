@@ -8,10 +8,11 @@ class Personaje {
 
         this.getNombre = () => Nombre
         this.getImg = () => Img
-        this.getPoder = () => Poder
         this.getRaza = () => Raza
-
+        
+        this.getPoder = () => Poder
         this.setPoder = (poder) => (Poder = poder)
+        
     }
     //  creacion de los metodos
     
@@ -28,9 +29,9 @@ class Personaje {
         return this.getRaza()
     }
 
-    set Poder(poder) {
-        return this.getPoder(poder)
-    }
+   set Poder(poder) {
+       return this.getPoder(poder)
+   }
 
 } 
 
