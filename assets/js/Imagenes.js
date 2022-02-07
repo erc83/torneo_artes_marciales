@@ -1,7 +1,7 @@
 import personajesData from "./Consulta.js";
 
 document.getElementById("buttonImages").addEventListener("click", async () => {
-    const { personajes } = await personajesData
+    const { personajes } = await personajesData // detructuring genera un array de 5 objetos
     console.log(personajes)
     const pj = document.getElementById("nombre").value
     const imagenesPjTemplate = personajes
