@@ -11,5 +11,13 @@ document.getElementById("buttonImages").addEventListener("click", async () => {
 
     document.getElementsByClassName("personajes")[0].innerHTML = imagenesPjTemplate
 
+    //2 intruccion para visualizar el click en la imagen bajo la visualizacion del elemento
+    document.querySelectorAll(".personajes img").forEach( (i) => {
+        i.addEventListener("click", (e) => {
+            $("#imagenesModal").modal("toggle")
+            const imagenSrc = e.target.src
+            document.getElementById("preview").style.backgroundImage = `url(${imagenSrc})`
+        })
+    })
 })
 
