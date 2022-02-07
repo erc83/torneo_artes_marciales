@@ -29,11 +29,21 @@ document.getElementById("btnRegistrar").addEventListener("click", () => {
             ki.value, 
             raza.value)
     }
+    // validacion con todos los campos
 
-
-    participantes.push(nuevoParticipante)
-    //console.log(nuevoParticipante)
-    reloadTable(); //cada vez que se registre un participante
+    if(raza.value && nombre.value && ki.value && imagenSrcBg){
+        participantes.push(nuevoParticipante)
+        // inicio reseteo de formulario
+        nombre.selectedIndex = 0;
+        raza.selectedIndex = 0;
+        previewElement.style.backgroundImage = "none"
+        imagenSrcBg = previewElement.style.backgroundColor = "#f0f0f0"
+        ki.value = ""
+        // termino reseteo campos formulario
+        reloadTable(); 
+    }else{
+        alert("Faltan datos por llenar")
+    }
 })
 
 const reloadTable = () => {
