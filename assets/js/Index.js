@@ -86,4 +86,12 @@ window.activarHabilidad = (i) => {
 }
 
 
+//funcionalidad quien es el mas fuerte
 
+document.getElementById("btnMasFuerte").addEventListener("click", () => {
+    const masFuerte = participantes.sort((a,b) => b.getPoder() -  a.getPoder())[0];
+    const nombre = masFuerte.getNombre()
+    console.log(nombre)
+    document.querySelector(`[data-fighter='${nombre}'] div`).style.boxShadow = "0px 0px 5px 1px red"
+
+})
