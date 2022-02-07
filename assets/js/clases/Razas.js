@@ -1,7 +1,7 @@
 import Personaje from "./Personaje.js"
 
 
-class Saiyayin extends Personaje{
+class Saiyajin extends Personaje{
     constructor (nombre, img, poder, raza){
         super(nombre, img, poder, raza)
     }
@@ -25,4 +25,4 @@ class Humano extends Personaje{
 
 // console.log(new Humano("krilin", "...", 1235, "..."))  //revisar coraje en el prototype
 
-export { Saiyayin, Humano } // en la exportacion se meten en un objeto
+export { Saiyajin, Humano } // en la exportacion se meten en un objeto
