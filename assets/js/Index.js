@@ -3,46 +3,35 @@ import { Saiyajin, Humano } from "./clases/Razas.js"
 let participantes = []
 
 document.getElementById("btnRegistrar").addEventListener("click", () => {
-    //valores del formulario
-    let nombre = document.getElementById("nombre")   // select id="nombre"
-    let raza = document.getElementById("raza")   // select id="raza"
-    let baseUri = document.getElementById("preview").url
-    console.log(baseUri)
-    let previewElement = document.getElementById("preview")    // div id="nombre"
-    console.log(previewElement)                                // explicacion estudiantes
+    let nombre = document.getElementById("nombre")   
+    let raza = document.getElementById("raza")   
+    let previewElement = document.getElementById("preview")                            
     let imagenSrcBg = previewElement.style.backgroundImage
-    console.log(imagenSrcBg)
-    let imgSrc =  imagenSrcBg.slice(5, imagenSrcBg.length -2)// la direccion completa de imgSrc
-        console.log(imgSrc)
-        let ki = document.getElementById("poderPelea")         // input id="poderPelea"
-        console.log(ki)
+    let imgSrc =  imagenSrcBg.slice(5, imagenSrcBg.length -2)
+    let ki = document.getElementById("poderPelea")    
+
     let nuevoParticipante
-    // nombre, img, poder, raza  orden de creacion de las clases
+    
     if(raza.value == "Saiyajin"){
         nuevoParticipante = new Saiyajin( nombre.value,  imgSrc,  ki.value,  raza.value)
     }else if(raza.value == "Humano"){
         nuevoParticipante = new Humano( nombre.value,  imgSrc,  ki.value,  raza.value)
     }
-    
-    // validacion con todos los campos
     if(raza.value && nombre.value && ki.value && imagenSrcBg){
         participantes.push(nuevoParticipante)
-        // inicio reseteo de formulario
         nombre.selectedIndex = 0;
         raza.selectedIndex = 0;
         previewElement.style.backgroundImage = "none"
         imagenSrcBg = previewElement.style.backgroundColor = "#f0f0f0"
         ki.value = ""
-        // termino reseteo campos formulario
         reloadTable(); 
     }else{
         alert("Faltan datos por llenar")
     }
 })
-
 const reloadTable = () => {
-    const participantesTemplate = document.getElementById("Participantes") //tabla en el HTML
-    participantesTemplate.innerHTML = ""; //para ir limpiando
+    const participantesTemplate = document.getElementById("Participantes")
+    participantesTemplate.innerHTML = ""; 
     participantes.forEach((p,i) => {
         participantesTemplate.innerHTML += `
         <div class="px-3 pb-2 participante"  data-fighter="${p.getNombre()}" >
@@ -64,7 +53,7 @@ const reloadTable = () => {
         `;
     });
 };
-// no se pueden ejecutar funciones al ser de tipo Modulo 
+
 window.activarHabilidad = (i) => {
     const participante = participantes[i]
     if(participante.getRaza() == "Saiyajin"){
@@ -76,7 +65,7 @@ window.activarHabilidad = (i) => {
     }
     reloadTable()
 }
-//funcionalidad quien es el mas fuerte
+
 document.getElementById("btnMasFuerte").addEventListener("click", () => {
     const masFuerte = participantes.sort((a,b) => b.getPoder() - a.getPoder())[0];
     const nombre = masFuerte.getNombre()

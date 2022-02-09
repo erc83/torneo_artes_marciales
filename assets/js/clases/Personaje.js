@@ -11,7 +11,6 @@ class Personaje {
         this.getPoder = () => Poder
         this.setPoder = (poder) => (Poder = poder)
     }
-    //  creacion de los metodos
     get Nombre() {
         return this.getNombre()
     }
@@ -29,5 +28,4 @@ class Personaje {
    }
 
 } 
-// console.log(new Personaje("goku", "..", 12345, "prueba"))
 export default Personaje
