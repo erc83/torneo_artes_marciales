@@ -10,8 +10,11 @@ document.getElementById("btnRegistrar").addEventListener("click", () => {
     console.log(previewElement)                                // explicacion estudiantes
     let imagenSrcBg = previewElement.style.backgroundImage
     console.log(imagenSrcBg)
-    let imgSrc =  imagenSrcBg.slice(5, imagenSrcBg.length -2)  // la direccion completa de imgSrc
-    console.log(imgSrc)
+    let imgSrc1 = imagenSrcBg.slice(5, 28)     
+    let imgSrc2 = "/torneo_artes_marciales"
+    let imgSrc3 = imagenSrcBg.slice(28, imagenSrcBg.length -2) 
+    let imgSrc =  imgSrc1+imgSrc2+imgSrc3// la direccion completa de imgSrc
+        console.log(imgSrc)
         let ki = document.getElementById("poderPelea")         // input id="poderPelea"
         console.log(ki)
     let nuevoParticipante
