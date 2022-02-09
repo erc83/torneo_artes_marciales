@@ -22,7 +22,5 @@ class Humano extends Personaje{
         this.setPoder(parseInt(poder * 1.2))
     }
 }
-
 // console.log(new Humano("krilin", "...", 1235, "..."))  //revisar coraje en el prototype
-
 export { Saiyajin, Humano } // en la exportacion se meten en un objeto

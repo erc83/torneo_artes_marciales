@@ -1,6 +1,5 @@
 import { Saiyajin, Humano } from "./clases/Razas.js"
 
-
 let participantes = []
 
 document.getElementById("btnRegistrar").addEventListener("click", () => {
@@ -8,29 +7,21 @@ document.getElementById("btnRegistrar").addEventListener("click", () => {
     let nombre = document.getElementById("nombre")   // select id="nombre"
     let raza = document.getElementById("raza")   // select id="raza"
     let previewElement = document.getElementById("preview")    // div id="nombre"
+        console.log(previewElement)                                // explicacion estudiantes
     let imagenSrcBg = previewElement.style.backgroundImage
+        console.log(imagenSrcBg)
     let imgSrc = imagenSrcBg.slice(5, imagenSrcBg.length -2)   // la direccion completa de imgSrc
+        console.log(imgSrc)
     let ki = document.getElementById("poderPelea")         // input id="poderPelea"
-
-
+        console.log(ki)
     let nuevoParticipante
-
     // nombre, img, poder, raza  orden de creacion de las clases
     if(raza.value == "Saiyajin"){
-        nuevoParticipante = new Saiyajin(
-            nombre.value, 
-            imgSrc, 
-            ki.value, 
-            raza.value)
+        nuevoParticipante = new Saiyajin( nombre.value,  imgSrc,  ki.value,  raza.value)
     }else if(raza.value == "Humano"){
-        nuevoParticipante = new Humano(
-            nombre.value, 
-            imgSrc, 
-            ki.value, 
-            raza.value)
+        nuevoParticipante = new Humano( nombre.value,  imgSrc,  ki.value,  raza.value)
     }
     // validacion con todos los campos
-
     if(raza.value && nombre.value && ki.value && imagenSrcBg){
         participantes.push(nuevoParticipante)
         // inicio reseteo de formulario
@@ -70,10 +61,8 @@ const reloadTable = () => {
         `;
     });
 };
-
 // no se pueden ejecutar funciones al ser de tipo Modulo 
 window.activarHabilidad = (i) => {
-
     const participante = participantes[i]
     if(participante.getRaza() == "Saiyajin"){
         console.log(participante.getRaza())
@@ -84,14 +73,10 @@ window.activarHabilidad = (i) => {
     }
     reloadTable()
 }
-
-
 //funcionalidad quien es el mas fuerte
-
 document.getElementById("btnMasFuerte").addEventListener("click", () => {
     const masFuerte = participantes.sort((a,b) => b.getPoder() -  a.getPoder())[0];
     const nombre = masFuerte.getNombre()
     console.log(nombre)
     document.querySelector(`[data-fighter='${nombre}'] div`).style.boxShadow = "0px 0px 5px 1px red"
-
 })
