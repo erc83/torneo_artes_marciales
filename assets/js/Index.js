@@ -44,9 +44,9 @@ const reloadTable = () => {
         participantesTemplate.innerHTML += `
         <div class="px-3 pb-2 participante"  data-fighter="${p.getNombre()}" >
         <div class="card">
-          <img`
-            `src="torneo_artes_marciales/${p.getImg()}"`
-            `class="card-img-top"
+          <img
+            src="${p.getImg()}"
+            class="card-img-top"
             alt="..."
           />
           <div class="card-body">
