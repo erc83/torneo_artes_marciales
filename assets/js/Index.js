@@ -44,9 +44,9 @@ const reloadTable = () => {
         participantesTemplate.innerHTML += `
         <div class="px-3 pb-2 participante"  data-fighter="${p.getNombre()}" >
         <div class="card">
-          <img
-            src="${p.getImg()}"
-            class="card-img-top"
+          <img`
+            `src="torneo_artes_marciales/${p.getImg()}"`
+            `class="card-img-top"
             alt="..."
           />
           <div class="card-body">
@@ -75,7 +75,7 @@ window.activarHabilidad = (i) => {
 }
 //funcionalidad quien es el mas fuerte
 document.getElementById("btnMasFuerte").addEventListener("click", () => {
-    const masFuerte = participantes.sort((a,b) => b.getPoder() -  a.getPoder())[0];
+    const masFuerte = participantes.sort((a,b) => b.getPoder() - a.getPoder())[0];
     const nombre = masFuerte.getNombre()
     console.log(nombre)
     document.querySelector(`[data-fighter='${nombre}'] div`).style.boxShadow = "0px 0px 5px 1px red"
