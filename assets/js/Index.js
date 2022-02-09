@@ -7,12 +7,15 @@ document.getElementById("btnRegistrar").addEventListener("click", () => {
     let nombre = document.getElementById("nombre")   // select id="nombre"
     let raza = document.getElementById("raza")   // select id="raza"
     let previewElement = document.getElementById("preview")    // div id="nombre"
-        console.log(previewElement)                                // explicacion estudiantes
+    console.log(previewElement)                                // explicacion estudiantes
     let imagenSrcBg = previewElement.style.backgroundImage
-        console.log(imagenSrcBg)
-    let imgSrc = imagenSrcBg.slice(5, imagenSrcBg.length -2)   // la direccion completa de imgSrc
-        console.log(imgSrc)
-    let ki = document.getElementById("poderPelea")         // input id="poderPelea"
+    console.log(imagenSrcBg)
+    let imgSrc1 = imagenSrcBg.slice(5, 26)     
+    let imgSrc2 = "/torneo_artes_marciales"
+    let imgSrc3 = imagenSrcBg.slice(26, imagenSrcBg.length -2) 
+    let imgSrc =  imgSrc1+imgSrc2+imgSrc3 // la direccion completa de imgSrc
+    console.log(imgSrc)
+        let ki = document.getElementById("poderPelea")         // input id="poderPelea"
         console.log(ki)
     let nuevoParticipante
     // nombre, img, poder, raza  orden de creacion de las clases
